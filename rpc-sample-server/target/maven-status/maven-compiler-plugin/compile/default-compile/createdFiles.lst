@@ -1,0 +1,3 @@
+com\xxx\rpc\sample\server\HelloServiceImpl.class
+com\xxx\rpc\sample\server\HelloServiceImpl2.class
+com\xxx\rpc\sample\server\RpcBootstrap.class
