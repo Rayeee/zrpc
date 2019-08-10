@@ -30,6 +30,11 @@
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
+        <!-- Curator -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
         <!-- RPC Common -->
         <dependency>
             <groupId>com.xxx.rpc</groupId>
