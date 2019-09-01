@@ -11,6 +11,10 @@
 
     <context:property-placeholder location="classpath:rpc.properties"/>
 
+    <bean id="curatorRegistry" class="com.zgy.rpc.registry.zookeeper.registry.CuratorRegistry">
+        <constructor-arg name="address" value="${rpc.registry_address}"/>
+    </bean>
+
     <bean id="serviceRegistry" class="com.zgy.rpc.registry.zookeeper.ZooKeeperServiceRegistry">
         <constructor-arg name="zkAddress" value="${rpc.registry_address}"/>
     </bean>

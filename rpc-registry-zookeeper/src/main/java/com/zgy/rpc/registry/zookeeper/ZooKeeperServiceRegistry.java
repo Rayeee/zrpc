@@ -42,4 +42,9 @@ public class ZooKeeperServiceRegistry implements ServiceRegistry {
         String addressNode = zkClient.createEphemeralSequential(addressPath, serviceAddress);
         LOGGER.debug("create address node: {}", addressNode);
     }
+
+    @Override
+    public void register(String serviceName) {
+        //do nothing
+    }
 }

@@ -1,6 +1,6 @@
-package com.zgy.rpc.registry.zookeeper.curator;
+package com.zgy.rpc.registry.zookeeper.client.curator;
 
-import com.zgy.rpc.registry.zookeeper.AbstractZookeeperClient;
+import com.zgy.rpc.registry.zookeeper.client.AbstractZookeeperClient;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
@@ -16,10 +16,10 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient {
 
     private CuratorFramework client;
 
-    public CuratorZookeeperClient(URL url) {
+    public CuratorZookeeperClient(String url) {
         super(url);
         client = CuratorFrameworkFactory.builder()
-                .connectString(url.getPath())
+                .connectString(url)
                 .retryPolicy(new RetryNTimes(Integer.MAX_VALUE, 1000))
                 .connectionTimeoutMs(5000)
                 .sessionTimeoutMs(60000).build();

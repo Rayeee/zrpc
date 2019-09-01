@@ -1,6 +1,4 @@
-package com.zgy.rpc.registry.zookeeper;
-
-import java.net.URL;
+package com.zgy.rpc.registry.zookeeper.client;
 
 /**
  * Created by Rayee on 2019/8/10.
@@ -9,9 +7,9 @@ public abstract class AbstractZookeeperClient implements ZookeeperClient {
 
     private volatile boolean closed = false;
 
-    private URL url;
+    private String url;
 
-    public AbstractZookeeperClient(URL url) {
+    public AbstractZookeeperClient(String url) {
         this.url = url;
     }
 
@@ -29,7 +27,7 @@ public abstract class AbstractZookeeperClient implements ZookeeperClient {
     }
 
     @Override
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
@@ -46,12 +44,12 @@ public abstract class AbstractZookeeperClient implements ZookeeperClient {
         }
     }
 
-    private static void test(String path) {
+    private static void test(String path, boolean b) {
         int i = path.lastIndexOf("/");
         if (i > 0) {
-            test(path.substring(0, i));
+            test(path.substring(0, i), false);
         }
-        System.out.println(path);
+        System.out.println(path + b);
     }
 
     protected abstract void doClose();
@@ -61,6 +59,6 @@ public abstract class AbstractZookeeperClient implements ZookeeperClient {
     protected abstract void createEphemeral(String path);
 
     public static void main(String[] args) {
-        test("/a/b/c/d");
+        test("/a/b/c/d", true);
     }
 }

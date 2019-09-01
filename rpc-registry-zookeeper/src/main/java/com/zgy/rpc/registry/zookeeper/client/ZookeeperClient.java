@@ -1,8 +1,7 @@
-package com.zgy.rpc.registry.zookeeper;
+package com.zgy.rpc.registry.zookeeper.client;
 
 import com.zgy.rpc.common.LifeCycle;
 
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -16,7 +15,7 @@ public interface ZookeeperClient extends LifeCycle {
 
     List<String> getChildren(String path);
 
-    URL getUrl();
+    String getUrl();
 
     boolean isConnected();
 
