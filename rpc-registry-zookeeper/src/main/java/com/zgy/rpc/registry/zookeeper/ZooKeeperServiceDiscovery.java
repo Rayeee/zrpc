@@ -54,6 +54,7 @@ public class ZooKeeperServiceDiscovery implements ServiceDiscovery {
             }
             // 获取 address 节点的值
             String addressPath = servicePath + "/" + address;
+            System.out.println(addressPath);
             return zkClient.readData(addressPath);
         } finally {
             zkClient.close();
